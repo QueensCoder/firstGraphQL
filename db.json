@@ -3,12 +3,32 @@
     {
       "id": 23,
       "firstName": "bob",
-      "age": 100
+      "age": 100,
+      "companyId": 2
     },
     {
       "id": 32,
-      "firstName": "obb",
-      "age": 1
+      "firstName": "Oz",
+      "age": 1,
+      "companyId": 1
+    },
+    {
+      "id": 1,
+      "firstName": "Jane",
+      "age": 25,
+      "companyId": 1
+    }
+  ],
+  "companies": [
+    {
+      "id": 1,
+      "name": "OzCorp",
+      "description": "sell high-end doggie goods"
+    },
+    {
+      "id": 2,
+      "name": "bobCorp",
+      "description": "repair bobs"
     }
   ]
 }

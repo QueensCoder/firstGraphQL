@@ -5,12 +5,24 @@ const axios = require('axios');
 const { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLSchema } = graphql;
 //GQL data types
 
+const CompanyType = new GraphQLObjectType({
+  name: 'Company',
+  fields: {
+    id: { type: GraphQLInt },
+    name: { type: GraphQLString },
+    description: { type: GraphQLString }
+  }
+});
+
 const UserType = new GraphQLObjectType({
   name: 'User',
   fields: {
     id: { type: GraphQLInt },
     firstName: { type: GraphQLString },
-    age: { type: GraphQLInt }
+    age: { type: GraphQLInt },
+    company: {
+      type: CompanyType
+    }
   }
 });
 
@@ -33,6 +45,8 @@ const RootQuery = new GraphQLObjectType({
 });
 
 //root query tells graphQL where to enter the graph
+
+//we use the library json-server in developement to simulate an external data source
 
 module.exports = new GraphQLSchema({
   query: RootQuery
