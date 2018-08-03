@@ -22,9 +22,10 @@ const CompanyType = new GraphQLObjectType({
     user: {
       type: new GraphQLList(UserType),
       async resolve(parentValue, args) {
+        const { id } = parentValue;
         try {
           const userInfo = await axios.get(
-            `http://localhost:3000/companies/${parentValue.id}/users`
+            `http://localhost:3000/companies/${id}/users`
           );
           return userInfo.data;
         } catch (err) {
@@ -44,9 +45,10 @@ const UserType = new GraphQLObjectType({
     company: {
       type: CompanyType,
       async resolve(parentValue, args) {
+        const { companyId } = parentValue;
         try {
           const companyInfo = await axios.get(
-            `http://localhost:3000/companies/${parentValue.companyId}`
+            `http://localhost:3000/companies/${companyId}`
           );
           //to fetch associations take companyId off of the parentValue
           //also a call to the db is required via axios

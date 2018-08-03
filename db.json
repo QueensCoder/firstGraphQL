@@ -25,18 +25,14 @@
     },
     {
       "firstName": "mitsy",
-      "age": 4,
-      "id": 5
+      "age": 8,
+      "id": 5,
+      "companyId": 2
     },
     {
       "firstName": "Mushy",
       "age": 2,
       "id": 6
-    },
-    {
-      "firstName": "test",
-      "age": 2,
-      "id": 7
     }
   ],
   "companies": [

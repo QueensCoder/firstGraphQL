@@ -3,14 +3,16 @@ const { UserType, CompanyType } = require('../schema');
 const axios = require('axios');
 
 const RootQuery = new GraphQLObjectType({
+  //GET REQ
   name: 'RootQueryType',
   fields: () => ({
     user: {
       type: UserType,
       args: { id: { type: GraphQLInt } },
       async resolve(parentValue, args) {
+        const { id } = args;
         try {
-          const res = await axios.get(`http://localhost:3000/users/${args.id}`);
+          const res = await axios.get(`http://localhost:3000/users/${id}`);
           return res.data;
         } catch (err) {
           console.log(err);
@@ -18,13 +20,13 @@ const RootQuery = new GraphQLObjectType({
       }
     },
     company: {
+      //GET
       type: CompanyType,
       args: { id: { type: GraphQLInt } },
       async resolve(parentValue, args) {
+        const { id } = args;
         try {
-          const res = await axios.get(
-            `http://localhost:3000/companies/${args.id}`
-          );
+          const res = await axios.get(`http://localhost:3000/companies/${id}`);
           return res.data;
         } catch (err) {
           console.log(err);
