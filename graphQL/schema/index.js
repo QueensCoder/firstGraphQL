@@ -60,11 +60,4 @@ const UserType = new GraphQLObjectType({
   }
 });
 
-//root query tells graphQL where to enter the graph
-//root query is basically our outline for the query that will be used
-//root query goes into usertype then the next step is into company type
-//GQL is unidirectional
-
-//we use the library json-server in developement to simulate an external data source
-
 module.exports = { UserType, CompanyType };

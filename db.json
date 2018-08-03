@@ -1,22 +1,37 @@
 {
   "users": [
     {
-      "id": 23,
+      "id": 1,
       "firstName": "bob",
       "age": 100,
       "companyId": 2
     },
     {
-      "id": 32,
+      "id": 2,
       "firstName": "Oz",
       "age": 1,
       "companyId": 1
     },
     {
-      "id": 1,
+      "id": 3,
       "firstName": "Jane",
       "age": 25,
       "companyId": 1
+    },
+    {
+      "firstName": "pooch",
+      "age": 9,
+      "id": 4
+    },
+    {
+      "firstName": "mitsy",
+      "age": 4,
+      "id": 5
+    },
+    {
+      "firstName": "Mushy",
+      "age": 2,
+      "id": 6
     }
   ],
   "companies": [
