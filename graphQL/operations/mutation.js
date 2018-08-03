@@ -1,11 +1,11 @@
+const axios = require('axios');
+const { UserType, CompanyType } = require('../schema');
 const {
   GraphQLNonNull,
   GraphQLObjectType,
   GraphQLString,
   GraphQLInt
 } = require('graphql');
-const axios = require('axios');
-const { UserType, CompanyType } = require('../schema');
 
 const mutation = new GraphQLObjectType({
   name: 'Mutation',

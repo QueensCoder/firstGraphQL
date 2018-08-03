@@ -1,4 +1,4 @@
-const { GraphQLObjectType, GraphQLSchema, GraphQLInt } = require('graphql');
+const { GraphQLObjectType, GraphQLInt } = require('graphql');
 const { UserType, CompanyType } = require('../schema');
 const axios = require('axios');
 
