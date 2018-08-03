@@ -2,13 +2,7 @@ const graphql = require('graphql');
 const axios = require('axios');
 // const _ = require('lodash'); used for static list of users
 
-const {
-  GraphQLObjectType,
-  GraphQLString,
-  GraphQLInt,
-  GraphQLSchema,
-  GraphQLList
-} = graphql;
+const { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLList } = graphql;
 //GQL data types
 
 //circular reference between two types
@@ -66,38 +60,6 @@ const UserType = new GraphQLObjectType({
   }
 });
 
-const RootQuery = new GraphQLObjectType({
-  name: 'RootQueryType',
-  fields: {
-    user: {
-      type: UserType,
-      args: { id: { type: GraphQLInt } },
-      async resolve(parentValue, args) {
-        try {
-          const res = await axios.get(`http://localhost:3000/users/${args.id}`);
-          return res.data;
-        } catch (err) {
-          console.log(err);
-        }
-      }
-    },
-    company: {
-      type: CompanyType,
-      args: { id: { type: GraphQLInt } },
-      async resolve(parentValue, args) {
-        try {
-          const res = await axios.get(
-            `http://localhost:3000/companies/${args.id}`
-          );
-          return res.data;
-        } catch (err) {
-          console.log(err, '><><><><><>-----<><><><><><');
-        }
-      }
-    }
-  }
-});
-
 //root query tells graphQL where to enter the graph
 //root query is basically our outline for the query that will be used
 //root query goes into usertype then the next step is into company type
@@ -105,6 +67,4 @@ const RootQuery = new GraphQLObjectType({
 
 //we use the library json-server in developement to simulate an external data source
 
-module.exports = new GraphQLSchema({
-  query: RootQuery
-});
+module.exports = { UserType, CompanyType };
