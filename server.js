@@ -1,8 +1,6 @@
 const app = require('express')();
 const expressGraphQL = require('express-graphql');
-const schema = require('./schema/schema');
-const users = require('./schema/schema');
-const _ = require('lodash');
+const schema = require('./graphQL');
 
 //graphQL middleware
 app.use(
