@@ -55,21 +55,18 @@ const mutation = new GraphQLObjectType({
       //while PATCH just updates
       type: UserType,
       args: {
-        id: { type: GraphQLInt },
+        //id is REQUIRED
+        id: { type: new GraphQLNonNull(GraphQLInt) },
         firstName: { type: GraphQLString },
         age: { type: GraphQLInt },
         companyId: { type: GraphQLInt }
       },
       async resolve(parentValue, args) {
-        const { id, firstName, age, companyId } = args;
         try {
           const updatedUser = await axios.patch(
             `http://localhost:3000/users/${id}`,
-            {
-              firstName,
-              age,
-              companyId
-            }
+            args
+            //args can be used because it will have corresponding data for dbjson server to use in req.body
           );
           return updatedUser.data;
         } catch (err) {
